@@ -17,6 +17,8 @@ func main() {
 	http.HandleFunc("/form", handlers.FormHandler)
 
 
+
+
 	// Dinamik endpoint
 	http.HandleFunc("/merhaba/", handlers.DynamicHandler)
 

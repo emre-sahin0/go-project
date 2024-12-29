@@ -5,25 +5,12 @@ import (
 	"net/http"
 	"strings"
 )
-
 func HomeHandler(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "text/html")
-	fmt.Fprintf(w, `
-		<!DOCTYPE html>
-		<html lang="tr">
-		<head>
-			<meta charset="UTF-8">
-			<meta name="viewport" content="width=device-width, initial-scale=1.0">
-			<title>Go Web Sitesi</title>
-			<link rel="stylesheet" href="/static/style.css">
-		</head>
-		<body>
-			<h1>Merhaba, Dünya!</h1>
-			<p>Bu, Go dili ile yapılan basit bir web sitesi.</p>
-		</body>
-		</html>
-	`)
+	http.ServeFile(w, r, "./templates/index.html")
 }
+
+
+
 
 func DynamicHandler(w http.ResponseWriter, r *http.Request) {
 	path := strings.TrimPrefix(r.URL.Path, "/merhaba/")
